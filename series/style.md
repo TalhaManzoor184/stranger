@@ -1,0 +1,1 @@
+Cinematic vertical video, 9:16 portrait, 1980s American small-town aesthetic, 35mm film grain, shallow depth of field, atmospheric fog, moody desaturated palette with red and cyan accents, photorealistic, high detail, slow deliberate camera movement, ambient sound only, no dialogue, no narration, no music, no on-screen text, no logos, no recognizable people or celebrities.

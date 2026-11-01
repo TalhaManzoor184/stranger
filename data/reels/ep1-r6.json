@@ -1,0 +1,35 @@
+{
+  "id": "ep1-r6",
+  "part": 6,
+  "title": "Did Episode 9 drop? What really happened | Conformity Gate Part 6",
+  "hook": "DID EPISODE 9 DROP?",
+  "shots": [
+    {
+      "vo": "January 7th arrived. Fans refreshed Netflix. Watched the clock. And... nothing.",
+      "prompt": "A teenager's 1980s-style bedroom at night seen from the doorway, a TV showing a looping loading circle, a digital alarm clock rolling past midnight, nobody in frame",
+      "overlay": "JANUARY 7, 2026",
+      "badge": "NONE"
+    },
+    {
+      "vo": "No Episode 9. Matt Duffer had already said there was no secret episode. The theory was wrong.",
+      "prompt": "Time-lapse of an empty 1980s bedroom as blue night turns to grey dawn through window blinds, the TV still glowing, still and quiet",
+      "overlay": "NO EPISODE 9",
+      "badge": "CONFIRMED"
+    },
+    {
+      "vo": "But why did so many believe it? Because Hawkins has always been a town where the truth was hidden. Next... the mystery behind Hawkins.",
+      "prompt": "Aerial drone shot gliding over a dark foggy pine forest at night toward an abandoned concrete research facility behind a rusted chain-link fence, one light flickering inside",
+      "overlay": "NEXT: HAWKINS",
+      "badge": "NONE"
+    }
+  ],
+  "caption": "January 7 came and went: no secret Stranger Things episode. But the theory said something real about Hawkins. Follow for the next part.",
+  "hashtags": [
+    "#StrangerThings",
+    "#ConformityGate",
+    "#Hawkins",
+    "#FanTheory",
+    "#Netflix"
+  ],
+  "series": "The Conformity Gate"
+}

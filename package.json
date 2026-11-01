@@ -1,0 +1,24 @@
+{
+  "name": "stranger-reels",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Daily 20–30 s vertical reels for the Conformity Gate (Stranger Things explainer) channel, made with Gemini",
+  "scripts": {
+    "reel": "tsx src/run.ts",
+    "reel:test": "tsx src/run.ts --visuals=procedural --tts=kokoro --no-upload",
+    "auth:youtube": "tsx src/scripts/get-refresh-token.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "22.10.2",
+    "tsx": "4.19.2",
+    "typescript": "5.6.3"
+  },
+  "dependencies": {
+    "@google/genai": "2.28.0",
+    "dotenv": "16.4.5",
+    "googleapis": "186.0.0",
+    "zod": "3.25.76"
+  }
+}

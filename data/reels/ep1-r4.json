@@ -1,0 +1,35 @@
+{
+  "id": "ep1-r4",
+  "part": 4,
+  "title": "Did the binders spell \"X A LIE\"? | Conformity Gate Part 4",
+  "hook": "\"X A LIE\"?",
+  "shots": [
+    {
+      "vo": "The most famous clue. In the final scene, the friends slide their Dungeons and Dragons binders onto a shelf. Fans claimed the letters spelled three words: X... A... LIE.",
+      "prompt": "A hand slides plain three-ring binders with hand-written block letters onto a wooden shelf in a dark bedroom, single desk lamp, deep shadows, letters unreadable",
+      "overlay": "CLUE #3",
+      "badge": "THEORY"
+    },
+    {
+      "vo": "Dimension X was a lie. Vecna never really lost. But look closer. On screen, it reads more like X-A-I-L-E. No hidden message.",
+      "prompt": "Macro shot sliding slowly along the spines of binders on a shelf, a magnifying glass passing over them, shallow focus, letters blurred",
+      "overlay": "ON SCREEN: X AILE",
+      "badge": "CONFIRMED"
+    },
+    {
+      "vo": "So why did people still believe? Because of a number.",
+      "prompt": "A 20-sided die rolling in slow motion across a green felt table, stopping just before it lands, red rim light",
+      "overlay": "PART 5 →",
+      "badge": "NONE"
+    }
+  ],
+  "caption": "Did the binders really spell \"X A LIE\"? Fans say yes, the screen says \"X AILE\". Part 5: the number 7.",
+  "hashtags": [
+    "#StrangerThings",
+    "#ConformityGate",
+    "#XALIE",
+    "#FanTheory",
+    "#Vecna"
+  ],
+  "series": "The Conformity Gate"
+}

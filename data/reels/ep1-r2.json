@@ -1,0 +1,35 @@
+{
+  "id": "ep1-r2",
+  "part": 2,
+  "title": "The creepy graduation clue | Conformity Gate Part 2",
+  "hook": "LOOK AT THEIR HANDS",
+  "shots": [
+    {
+      "vo": "Conformity Gate, clue number one. In the graduation scene, fans noticed rows of students sitting with their hands folded... the exact same way.",
+      "prompt": "Rows of anonymous graduates in caps and gowns seated in folding chairs on a school lawn, faces out of focus, slow crane-down over the rows, flat overcast light",
+      "overlay": "CLUE #1",
+      "badge": "THEORY"
+    },
+    {
+      "vo": "Some linked that pose to Henry Creel, the man who became Vecna. Puppets under his control? Or just extras told to sit still?",
+      "prompt": "Close-up of many pairs of hands folded identically in laps in a row, perfectly still, a faint red vignette creeping in, slow lateral slide",
+      "overlay": "PUPPETS?",
+      "badge": "THEORY"
+    },
+    {
+      "vo": "The frame can't prove it either way. But the next clue... is harder to ignore.",
+      "prompt": "Old peeling floral wallpaper in a dark hallway, a faint shape pressing against it from behind, a single ceiling bulb flickering, slow push-in",
+      "overlay": "PART 3 →",
+      "badge": "NONE"
+    }
+  ],
+  "caption": "Conformity Gate clue #1: why were their hands all folded the same way? Fan theory, not confirmed. Part 3 tomorrow.",
+  "hashtags": [
+    "#StrangerThings",
+    "#ConformityGate",
+    "#Vecna",
+    "#FanTheory",
+    "#StrangerThings5"
+  ],
+  "series": "The Conformity Gate"
+}

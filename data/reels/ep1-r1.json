@@ -1,0 +1,35 @@
+{
+  "id": "ep1-r1",
+  "part": 1,
+  "title": "Was the Stranger Things ending FAKE? | Conformity Gate Part 1",
+  "hook": "WAS THE ENDING FAKE?",
+  "shots": [
+    {
+      "vo": "New Year's Eve, 2025. Stranger Things ended after nine years. The kids grew up. Everyone got their happy ending.",
+      "prompt": "A dark 1980s living room at night, wood-panel walls, a boxy CRT television glowing cold blue with static, an empty armchair facing it, slow push-in toward the screen, dust floating in the air",
+      "overlay": "DEC 31, 2025",
+      "badge": "CONFIRMED"
+    },
+    {
+      "vo": "And within days, thousands of fans decided... none of it was real. They believed the finale was an illusion created by Vecna, and that a secret Episode 9 was coming.",
+      "prompt": "A sunny, too-perfect 1980s suburban street with identical pastel houses and trimmed lawns, the image slowly flickering and glitching like a broken VHS tape, slow lateral tracking shot",
+      "overlay": "NONE OF IT WAS REAL?",
+      "badge": "THEORY"
+    },
+    {
+      "vo": "They called it the Conformity Gate. And the clues they found... were strange.",
+      "prompt": "A rusted wrought-iron gate standing alone in a foggy pine forest at night, deep red light glowing behind it, the gate slowly creaks open a few inches, locked-off wide shot",
+      "overlay": "THE CONFORMITY GATE",
+      "badge": "NONE"
+    }
+  ],
+  "caption": "Stranger Things ended on New Year's Eve... so why did fans think it wasn't over? Part 2 tomorrow.",
+  "hashtags": [
+    "#StrangerThings",
+    "#ConformityGate",
+    "#FanTheory",
+    "#Vecna",
+    "#Netflix"
+  ],
+  "series": "The Conformity Gate"
+}

@@ -1,0 +1,112 @@
+name: Daily Conformity Gate reel
+
+on:
+  schedule:
+    # GitHub starts cron jobs late or skips them, so try three times before the 6:00 PM PKT slot:
+    # 1:13 PM, 2:43 PM and 4:07 PM PKT. Each run checks data/history.json and does nothing if
+    # today's reel is already uploaded, so only one reel goes out per day.
+    - cron: "13 8 * * *"
+    - cron: "43 9 * * *"
+    - cron: "7 11 * * *"
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "test = no keys needed (placeholder visuals + offline voice, no upload) · gemini-test = real Gemini voice + video, no upload · full = real reel, uploaded and scheduled · publish-now = real reel, public immediately"
+        type: choice
+        options: [test, gemini-test, full, publish-now]
+        default: test
+      reel:
+        description: "Optional reel id (e.g. ep1-r1). Empty = next unposted reel."
+        required: false
+        default: ""
+
+permissions:
+  contents: write # commits data/history.json and newly written reels
+
+concurrency:
+  group: daily-reel
+  cancel-in-progress: false
+
+env:
+  # Change in Settings → Secrets and variables → Actions → Variables.
+  UPLOAD_MODE: ${{ vars.UPLOAD_MODE || 'schedule' }}
+  PUBLISH_TIME: ${{ vars.PUBLISH_TIME || '18:00' }}
+  PUBLISH_UTC_OFFSET: ${{ vars.PUBLISH_UTC_OFFSET || '5' }}
+  VISUALS: ${{ vars.VISUALS || 'video' }}
+  TTS_PROVIDER: ${{ vars.TTS_PROVIDER || 'gemini' }}
+  GEMINI_VOICE: ${{ vars.GEMINI_VOICE || 'Charon' }}
+  GEMINI_VIDEO_MODEL: ${{ vars.GEMINI_VIDEO_MODEL }}
+  GEMINI_IMAGE_MODEL: ${{ vars.GEMINI_IMAGE_MODEL }}
+  GEMINI_TEXT_MODEL: ${{ vars.GEMINI_TEXT_MODEL }}
+  GEMINI_TTS_MODEL: ${{ vars.GEMINI_TTS_MODEL }}
+
+jobs:
+  reel:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v5
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Install tools
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
+          pip install -q kokoro-onnx soundfile numpy pillow
+
+      - name: Cache offline voice model
+        uses: actions/cache@v4
+        with:
+          path: .cache/kokoro
+          key: kokoro-v1.0
+
+      - run: npm ci
+
+      - name: Make reel
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          YOUTUBE_CLIENT_ID: ${{ secrets.YOUTUBE_CLIENT_ID }}
+          YOUTUBE_CLIENT_SECRET: ${{ secrets.YOUTUBE_CLIENT_SECRET }}
+          YOUTUBE_REFRESH_TOKEN: ${{ secrets.YOUTUBE_REFRESH_TOKEN }}
+          MODE: ${{ github.event_name == 'schedule' && 'scheduled' || inputs.mode }}
+          REEL: ${{ inputs.reel }}
+        run: |
+          ARGS=""
+          if [ -n "$REEL" ]; then ARGS="--reel=$REEL"; fi
+          case "$MODE" in
+            test)        npm run reel -- --visuals=procedural --tts=kokoro --no-upload $ARGS ;;
+            gemini-test) npm run reel -- --no-upload $ARGS ;;
+            publish-now) UPLOAD_MODE=public npm run reel -- $ARGS ;;
+            full)        npm run reel -- $ARGS ;;
+            *)           npm run reel -- --if-slot-free ;;
+          esac
+
+      - name: Keep the reel for 14 days
+        if: always()
+        uses: actions/upload-artifact@v5
+        with:
+          name: reel-${{ github.run_number }}
+          path: |
+            out/*/reel.mp4
+            out/*/reel.json
+          retention-days: 14
+          if-no-files-found: ignore
+
+      - name: Save history and new reels
+        if: always()
+        run: |
+          git config user.name "stranger-bot"
+          git config user.email "stranger-bot@users.noreply.github.com"
+          git add data/history.json data/reels
+          if ! git diff --cached --quiet; then
+            git commit -m "Reel $(date -u +%F)"
+            git push
+          fi
